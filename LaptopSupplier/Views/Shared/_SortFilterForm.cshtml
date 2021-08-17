@@ -1,0 +1,44 @@
+﻿@{
+  bool showBrandFilter = false;
+
+  if (ViewData["ShowBrandFilter"] != null)
+  {
+    showBrandFilter = (bool)ViewData["ShowBrandFilter"];
+  }
+}
+
+@using (Html.BeginForm())
+{
+  <div class="border-bottom pb-3 mb-3">
+    <ul class="list-unstyled">
+      @if (showBrandFilter)
+      {
+        <li class="pb-1 mb-1">Select Brand: @Html.DropDownList("Brand")</li>
+      }
+      <li class="p-1">Sort Items: @Html.DropDownList("SortCriteria")</li>
+      <li class="p-1">Price: from $@Html.Editor("MinPrice") to $@Html.Editor("MaxPrice")</li>
+      <li class="p-1">Year: from @Html.DropDownList("StartYear", "Any") to @Html.DropDownList("EndYear", "Any")</li>
+      <li class="p-1">Number of Items to Show: @Html.Editor("NumbertoShow")</li>
+      <li class="p-1">
+        Current Filters: @foreach (string filter in ViewBag.FilterDisplay)
+        {
+          <span class="col-sm text-muted font-weight-lighter text-monospace border p-1"> @filter</span>
+        }
+      </li>
+    </ul>
+    <input class="mb-1 pb-1" type="submit" value="Apply Filters" />
+  </div>
+}
+
+@*{
+  <div class="border-bottom pb-3 mb-3">
+    <ul class="list-unstyled">
+      <li class="pb-1 mb-1">Select Brand: @Html.DropDownList("Brand")</li>
+      <li class="pb-1 mb-1">Sort Items: @Html.DropDownList("SortCriteria")</li>
+      <li class="pb-1 mb-1">Number of Items to Show: @Html.Editor("NumbertoShow")</li>
+      <li class="pb-1 mb-1">Price: from $@Html.Editor("MinPrice") to $@Html.Editor("MaxPrice")</li>
+      <li class="pb-1 mb-1">Year Range: @Html.DropDownList("StartYear", "Any") to @Html.DropDownList("EndYear", "Any")</li>
+    </ul>
+    <input class="mb-1 pb-1" type="submit" value="Apply Filters" />
+  </div>
+  }*@

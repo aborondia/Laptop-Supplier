@@ -1,0 +1,18 @@
+﻿@if (DataBase.Brands.Count() > 0)
+{
+  @using (Html.BeginForm())
+  {
+    <div class="border">
+      <h3>Please enter the new product information:</h3>
+      <ul class="list-unstyled">
+        <li>Brand: @Html.DropDownList("Brand")</li>
+        <li>Model: @Html.Editor("Laptop")</li>
+        <li>Price: @Html.Editor("Price")</li>
+        <li>Year: @Html.DropDownList("Year")</li>
+        <li>Manufacturer Site URL (optional): <span class="font-weight-lighter">http://</span>@Html.Editor("ManufacturerSiteURL")</li>
+      </ul>
+    </div>
+    <input type="submit" value="Add Laptop" />
+  }
+}
+<partial name="_UserMessage" />

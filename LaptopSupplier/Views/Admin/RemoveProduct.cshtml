@@ -1,0 +1,13 @@
+﻿@if (DataBase.Laptops.Count > 0)
+{
+  @using (Html.BeginForm())
+  {
+    <div class="border">
+      Product to Remove: @Html.DropDownList("Product")
+      <span class="text-danger">WARNING! Pressing submit will remove the product from the database.</span>
+    </div>
+    <input type="submit" value="Submit" />
+  }
+}
+
+<partial name="_UserMessage" />

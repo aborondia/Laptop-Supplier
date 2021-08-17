@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Laptop>
+
+  <partial name="_SortFilterForm" />
+
+<h2><span class="border-bottom border-dark">@ViewData["BrandName"]</span></h2>
+@if (Model != null)
+{
+
+  <div>
+    @foreach (Laptop laptop in Model)
+    {
+      <partial name="_LaptopDetails" model="laptop" />
+    }
+  </div>
+}
+
+<partial name="_UserMessage" />

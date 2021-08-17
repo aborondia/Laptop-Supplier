@@ -1,0 +1,8 @@
+﻿
+@using (Html.BeginForm("Specific", "Brand"))
+{
+  <div class="border-bottom pb-3 mb-3">
+    <p class="p-1 mb-1">Show Items by Brand: @Html.DropDownList("Brand")</p>
+    <input class="p-1" type="submit" value="Go to Brand" />
+  </div>
+}

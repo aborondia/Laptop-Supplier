@@ -1,0 +1,14 @@
+﻿
+@if (DataBase.Brands.Count > 0)
+{
+  @using (Html.BeginForm())
+  {
+    <div class="border">
+      Brand to Remove: @Html.DropDownList("Brand")
+      <span class="text-danger">WARNING! Pressing submit will remove the brand and all products associated with it.</span>
+    </div>
+    <input type="submit" value="Submit" />
+  }
+}
+
+<partial name="_UserMessage" />

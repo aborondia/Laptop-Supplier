@@ -1,0 +1,23 @@
+﻿@model List<Laptop>
+
+@if (DataBase.Laptops.Count > 0)
+{
+  @using (Html.BeginForm())
+  {
+    <div class="pb-3 mb-3">
+      @Html.DropDownList("Laptop1", "Select Model")
+      @Html.DropDownList("Laptop2", "Select Model")
+      <input type="submit" value="Compare" />
+    </div>
+  }
+}
+
+@if (Model != null)
+{
+  <div class="d-flex justify-content-between">
+    <partial name="_LaptopDetails" model=Model[0] />
+    <partial name="_LaptopDetails" model=Model[1] />
+  </div>
+}
+
+<partial name="_UserMessage" />

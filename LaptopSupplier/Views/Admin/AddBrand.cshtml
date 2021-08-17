@@ -1,0 +1,18 @@
+﻿
+@if (DataBase.Brands.Count > 0)
+{
+  <div class="border">
+    Current brands in Database: @Html.DropDownList("Brands")
+  </div>
+}
+
+@using (Html.BeginForm())
+{
+  <div class="border">
+    Please enter a new brand name: @Html.Editor("Brand")
+  </div>
+
+  <input type="submit" value="Add Brand" />
+}
+
+<partial name="_UserMessage" />

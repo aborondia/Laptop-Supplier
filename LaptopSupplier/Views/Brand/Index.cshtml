@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Brand>
+
+@if (Model != null)
+{
+  <partial name="_BrandSelectForm" />
+
+  <div>
+    @foreach (Brand brand in Model)
+    {
+      <h2><span class="border-bottom border-dark">@brand.Name Products</span></h2>
+      @if (brand.Laptops.Count <= 0)
+      {
+        <h3 class="border-bottom pb-3 mb-3">There are no products being sold by this brand.</h3>
+      }
+      else
+      {
+        foreach (Laptop laptop in brand.Laptops)
+        {
+          <partial name="_LaptopDetails" model="laptop" />
+        }
+      }
+    }
+  </div>
+}
+
+<partial name="_UserMessage" />

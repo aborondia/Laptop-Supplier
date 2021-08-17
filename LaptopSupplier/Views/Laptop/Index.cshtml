@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Laptop>
+
+@if (Model != null)
+{
+  <partial name="_SortFilterForm" />
+
+  <div>
+    @foreach (Laptop laptop in Model)
+    {
+      <partial name="_LaptopDetails" model="laptop" />
+    }
+  </div>
+}
+
+<partial name="_UserMessage" />

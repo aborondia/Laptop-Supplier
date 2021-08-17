@@ -1,0 +1,25 @@
+﻿@model Laptop
+
+@{
+  string showBorder = "border-bottom";
+
+  if (ViewData["HideBorder"] != null && (bool)ViewData["HideBorder"])
+  {
+    showBorder = "";
+  }
+}
+
+<div class="mb-3 pb-3 @showBorder">
+  <h5 class="text-dark">@Html.ActionLink(Model.Model, "Info", "Laptop", new { Product = Model.Id })</h5>
+  <p>Brand: @Html.ActionLink(Model.Brand.Name, "Specific", "Brand", new { Brand = Model.Brand.Name })</p>
+  <p>Year: @Model.Year</p>
+  <p>Price: $@Model.FormattedPrice</p>
+
+  @if (string.IsNullOrEmpty(Model.ManufacturerDetails))
+  {
+    <p>Manufacturer Site not Available</p>;
+  }
+  else
+  {
+    <span><a href=@Model.ManufacturerDetails target="_blank">View on Manufacturer's' Site</a> (external redirect)</span>}
+</div>
